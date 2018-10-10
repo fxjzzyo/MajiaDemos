@@ -8,10 +8,10 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.v_fanlulin.majiademo2.R;
 import com.earnmoney.adapter.MyFragmentPagerAdapter;
 import com.earnmoney.fragment.FoundFragment;
 import com.earnmoney.fragment.HomeFragment;
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager mViewPager;
     private ImageView ivHome, ivPhone, ivMe;
     private TextView tvHome, tvPhone, tvMe;
+    private LinearLayout llHome,llFound,llMe;
     private MyFragmentPagerAdapter myFragmentPagerAdapter;
     public static MainActivity mainActivityInstance;
     private List<Fragment> mFragments;
@@ -55,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvHome = (TextView) findViewById(R.id.tv_home);
         tvPhone = (TextView) findViewById(R.id.tv_phone);
         tvMe = (TextView) findViewById(R.id.tv_me);
+
+        llHome = findViewById(R.id.ll_home);
+        llFound = findViewById(R.id.ll_found);
+        llMe = findViewById(R.id.ll_me);
     }
 
 
@@ -103,9 +108,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void initEvent() {
-        ivHome.setOnClickListener(this);
-        ivPhone.setOnClickListener(this);
-        ivMe.setOnClickListener(this);
+        llMe.setOnClickListener(this);
+        llFound.setOnClickListener(this);
+        llHome.setOnClickListener(this);
+//
+//        tvHome.setOnClickListener(this);
+//        tvPhone.setOnClickListener(this);
+//        tvMe.setOnClickListener(this);
     }
     /**
      * 设置选中项
@@ -150,13 +159,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.iv_home:
+            case R.id.ll_home:
                 setItemSelected(0);
                 break;
-            case R.id.iv_phone:
+            case R.id.ll_found:
                 setItemSelected(1);
                 break;
-            case R.id.iv_me:
+            case R.id.ll_me:
                 setItemSelected(2);
                 break;
         }

@@ -7,7 +7,6 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.v_fanlulin.majiademo2.R;
 import com.earnmoney.javabean.Info;
 
 public class DetailActivity extends AppCompatActivity {

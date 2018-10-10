@@ -7,7 +7,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.v_fanlulin.majiademo2.R;
 import com.earnmoney.utils.MyUtil;
 import com.earnmoney.utils.SharedPreferenceUtil;
 

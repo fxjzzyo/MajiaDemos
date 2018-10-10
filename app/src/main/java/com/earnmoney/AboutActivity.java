@@ -5,7 +5,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.example.v_fanlulin.majiademo2.R;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -16,6 +15,8 @@ public class AboutActivity extends AppCompatActivity {
         ActionBar actionBar =getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
+
+        setTitle("关于");
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

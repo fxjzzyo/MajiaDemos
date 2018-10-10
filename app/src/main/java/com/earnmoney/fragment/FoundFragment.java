@@ -15,7 +15,7 @@ import android.widget.ListView;
 import com.baoyz.widget.PullRefreshLayout;
 import com.earnmoney.DetailActivity;
 import com.earnmoney.ExampleApplication;
-import com.example.v_fanlulin.majiademo2.R;
+import com.earnmoney.R;
 import com.earnmoney.adapter.FoundListAdapter;
 import com.earnmoney.javabean.Info;
 import com.earnmoney.utils.MyUtil;

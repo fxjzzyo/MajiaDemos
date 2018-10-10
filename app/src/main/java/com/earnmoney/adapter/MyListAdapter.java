@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.v_fanlulin.majiademo2.R;
+import com.earnmoney.R;
 import com.earnmoney.javabean.Info;
 
 import java.util.List;

@@ -17,7 +17,8 @@ import android.widget.ListView;
 import com.baoyz.widget.PullRefreshLayout;
 import com.earnmoney.DetailActivity;
 import com.earnmoney.ExampleApplication;
-import com.example.v_fanlulin.majiademo2.R;
+import com.earnmoney.R;
+import com.earnmoney.WebActivity;
 import com.earnmoney.adapter.MyListAdapter;
 import com.earnmoney.javabean.Info;
 import com.earnmoney.utils.MyUtil;
@@ -53,12 +54,20 @@ public class HomeFragment extends Fragment {
 
     private ArrayList<Integer> localImages = new ArrayList<Integer>();
     private BGABanner mBgaBanner;
+    private String[] urls={
+            "https://bj.58.com/zpmeishu/35643917059017x.shtml",
+            "https://bj.58.com/zpmeishu/35567868973124x.shtml",
+            "https://bj.58.com/zpguanli/32459452232008x.shtml",
+            "https://bj.58.com/zpguanli/35400076434349x.shtml",
+            "https://bj.58.com/xiaofeipin/35475323613766x.shtml"
+
+    };
 
     private PullRefreshLayout layout;
 
     private int[] pics = {
             R.mipmap.p6,R.mipmap.p7,R.mipmap.p8,R.mipmap.p1,R.mipmap.p2,R.mipmap.p3,R.mipmap.p4,R.mipmap.p5
-     ,R.mipmap.p9,R.mipmap.p10
+     ,R.mipmap.p9, R.mipmap.p10
     };
 
     public HomeFragment() {
@@ -155,6 +164,16 @@ public class HomeFragment extends Fragment {
                 R.drawable.banner_4,
                 R.drawable.banner_5
                 );
+
+        mBgaBanner.setDelegate(new BGABanner.Delegate<ImageView, String>() {
+            @Override
+            public void onBannerItemClick(BGABanner banner, ImageView itemView, String model, int position) {
+                Intent intent = new Intent(getActivity(), WebActivity.class);
+                intent.putExtra("url",urls[position]);
+                startActivity(intent);
+            }
+        });
+
         // listen refresh event
         layout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
             @Override

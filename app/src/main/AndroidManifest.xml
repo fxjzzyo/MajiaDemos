@@ -15,7 +15,7 @@
         android:protectionLevel="signature" />
 
     <!-- Required  一些系统要求的权限，如访问网络等 -->
-    <uses-permission android:name="您应用的包名.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="com.earnmoney.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -45,9 +45,9 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
-        android:name="com.earnmoney.ExampleApplication"
+        android:name=".ExampleApplication"
         android:allowTaskReparenting="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon"
         android:label="@string/app_name">
         <meta-data
             android:name="APP_CHANNEL"
@@ -58,10 +58,10 @@
             android:value="cocos2dlua" />
 
         <activity
-            android:name="com.earnmoney.MainActivity"
+            android:name=".MainActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.earnmoney.AboutActivity"
+            android:name=".AboutActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name="com.mastersdk.android.MainActivity"
@@ -100,7 +100,7 @@
                 <action android:name="cn.jpush.android.ui.PushActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.majiademo2" />
+                <category android:name="com.earnmoney" />
             </intent-filter>
         </activity>
 
@@ -132,7 +132,7 @@
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.DaemonService" />
 
-                <category android:name="com.majiademo2" />
+                <category android:name="com.earnmoney" />
             </intent-filter>
         </service>
         <!-- since 3.1.0 Required SDK 核心功能 -->
@@ -147,7 +147,7 @@
             android:exported="false">
             <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> <!-- Required  显示通知栏 -->
-                <category android:name="com.majiademo2" />
+                <category android:name="com.earnmoney" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
@@ -178,7 +178,7 @@
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
                 <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
-                <category android:name="com.majiademo2" />
+                <category android:name="com.earnmoney" />
             </intent-filter>
         </receiver>
 
@@ -191,18 +191,21 @@
             android:value="6cabb1e47b2ddf88ee662211" /> <!-- </>值来自开发者平台取得的AppKey -->
 
         <activity
-            android:name="com.earnmoney.DetailActivity"
+            android:name=".DetailActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.earnmoney.LoginActivity"
+            android:name=".LoginActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.earnmoney.RegisterActivity"
+            android:name=".RegisterActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.earnmoney.MyInfoActivity"
+            android:name=".MyInfoActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name="com.earnmoney.FeedbackActivity"
+        <activity
+            android:name=".FeedbackActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".WebActivity"
             android:theme="@style/AppTheme"
             ></activity>
     </application>

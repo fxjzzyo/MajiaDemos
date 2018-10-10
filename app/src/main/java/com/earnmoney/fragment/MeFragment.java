@@ -19,7 +19,7 @@ import com.earnmoney.FeedbackActivity;
 import com.earnmoney.Global;
 import com.earnmoney.LoginActivity;
 import com.earnmoney.MyInfoActivity;
-import com.example.v_fanlulin.majiademo2.R;
+import com.earnmoney.R;
 import com.earnmoney.utils.MyUtil;
 import com.earnmoney.utils.SharedPreferenceUtil;
 
