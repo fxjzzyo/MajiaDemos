@@ -1,6 +1,7 @@
 package com.example.v_fanlulin.majiademo2.fragment;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,16 +12,25 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+
+import com.baoyz.widget.PullRefreshLayout;
 import com.example.v_fanlulin.majiademo2.DetailActivity;
 import com.example.v_fanlulin.majiademo2.ExampleApplication;
 import com.example.v_fanlulin.majiademo2.R;
 import com.example.v_fanlulin.majiademo2.adapter.MyListAdapter;
 import com.example.v_fanlulin.majiademo2.javabean.Info;
+import com.example.v_fanlulin.majiademo2.utils.MyUtil;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.bingoogolapple.bgabanner.BGABanner;
+import cn.bingoogolapple.bgabanner.BGALocalImageSize;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,9 +55,14 @@ public class HomeFragment extends Fragment {
     private MyListAdapter myListAdapter;
     private List<Info> infos;
 
+    private ArrayList<Integer> localImages = new ArrayList<Integer>();
+    private BGABanner mBgaBanner;
+
+    private PullRefreshLayout layout;
+
     private int[] pics = {
-      R.mipmap.p1,R.mipmap.p2,R.mipmap.p3,R.mipmap.p4,R.mipmap.p5,
-      R.mipmap.jay1,R.mipmap.jay2,R.mipmap.jay3,R.mipmap.jay4,R.mipmap.jay5
+            R.mipmap.p6,R.mipmap.p7,R.mipmap.p8,R.mipmap.p1,R.mipmap.p2,R.mipmap.p3,R.mipmap.p4,R.mipmap.p5
+     ,R.mipmap.p9,R.mipmap.p10
     };
 
     public HomeFragment() {
@@ -107,7 +122,8 @@ public class HomeFragment extends Fragment {
 
         View view = getView();
         mListView = view.findViewById(R.id.lv_home);
-
+        mBgaBanner = view.findViewById(R.id.banner_guide_content);
+        layout = view.findViewById(R.id.swipeRefreshLayout);
 
     }
 
@@ -133,11 +149,53 @@ public class HomeFragment extends Fragment {
             }
         });
 
+// Bitmap 的宽高在 maxWidth maxHeight 和 minWidth minHeight 之间
+        BGALocalImageSize localImageSize = new BGALocalImageSize(720, 1280, 320, 640);
+// 设置数据源
+        mBgaBanner.setData(localImageSize, ImageView.ScaleType.CENTER_CROP,
+                R.drawable.banner_1,
+                R.drawable.banner_2,
+                R.drawable.banner_3,
+                R.drawable.banner_4,
+                R.drawable.banner_5
+                );
+        // listen refresh event
+        layout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // start refresh
+                layout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        ExampleApplication exampleApplication = ExampleApplication.getInstance();
+                        int currentId = HomeFragment.this.infos.size()-1;
+                        List<Info> infos =  exampleApplication.mWorkDB.getMoreTwoDatas(currentId);
+
+                        //设置图片
+                        for (int i = 0; i < infos.size(); i++) {
+                            Info info = infos.get(i);
+                            info.setPicture(pics[currentId+1+i]);
+                            HomeFragment.this.infos.add(info);
+                        }
+                        myListAdapter.notifyDataSetChanged();
+                        MyUtil.toastMessage(getActivity(),"刷新成功！");
+                        if (infos.size() < 2) {
+                            MyUtil.toastMessage(getActivity(),"已加载全部数据！");
+                        }
+                        layout.setRefreshing(false);
+                    }
+                }, 2000);
+
+            }
+        });
+
+
     }
+
 
     private void initInfos() {
         ExampleApplication exampleApplication = ExampleApplication.getInstance();
-        List<Info> infos =  exampleApplication.mWorkDB.getAllDatas();
+        List<Info> infos =  exampleApplication.mWorkDB.getFirstFiveDatas();
         this.infos = new ArrayList<>();
         //设置图片
         for (int i = 0; i < infos.size(); i++) {
@@ -187,4 +245,6 @@ public class HomeFragment extends Fragment {
         infos.add(info5);*/
 
     }
+
+
 }

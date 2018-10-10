@@ -5,9 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.v_fanlulin.majiademo2.utils.MyUtil;
-import com.example.v_fanlulin.majiademo2.utils.SharedPreferenceUtil;
 
 public class FeedbackActivity extends AppCompatActivity {
 
@@ -61,4 +61,5 @@ public class FeedbackActivity extends AppCompatActivity {
         MyUtil.toastMessage(this, "评价成功！");
         this.finish();
     }
+
 }

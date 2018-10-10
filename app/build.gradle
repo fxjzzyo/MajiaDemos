@@ -31,6 +31,8 @@ dependencies {
         force = true
     }
     compile 'com.tuyenmonkey:mkloader:1.2.0'
+    implementation 'cn.bingoogolapple:bga-banner:2.2.4@aar'
+    compile 'com.baoyz.pullrefreshlayout:library:1.2.0'
     compile files("src/main/jniLibs/android-async-http-1.4.8.jar")
     compile files("src/main/jniLibs/android-mastersdk-1.25.jar")
 //    compile files("src/main/jniLibs/android-support-v4.jar")

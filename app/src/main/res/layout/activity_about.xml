@@ -9,6 +9,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
-    android:text="天天赚 1.0"
+    android:text="有赚网 1.0"
     />
 </RelativeLayout>
