@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context="com.earnmoney.MyInfoActivity">
+    tools:context="com.earnmoney.fxj.earnmoney.MyInfoActivity">
 
     <TextView
         android:layout_width="wrap_content"
