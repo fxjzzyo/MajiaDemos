@@ -3,7 +3,7 @@
     package="com.example.v_fanlulin.majiademo2"
     android:installLocation="auto"
     android:versionCode="1"
-    android:versionName="1.0">
+    android:versionName="1.10">
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -188,7 +188,7 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="您应用的Appkey" /> <!-- </>值来自开发者平台取得的AppKey -->
+            android:value="6cabb1e47b2ddf88ee662211" /> <!-- </>值来自开发者平台取得的AppKey -->
 
         <activity
             android:name=".DetailActivity"

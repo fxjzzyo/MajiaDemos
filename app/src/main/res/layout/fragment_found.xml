@@ -9,7 +9,8 @@
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:refreshType="material">
+        app:refreshColor="@color/Darkorange"
+        app:refreshType="smartisan">
     <ListView
         android:id="@+id/lv_found"
         android:layout_width="match_parent"

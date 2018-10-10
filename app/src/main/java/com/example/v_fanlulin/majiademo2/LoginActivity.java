@@ -114,6 +114,21 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //设置输入框
+        String name = SharedPreferenceUtil.getData(LoginActivity.this, SharedPreferenceUtil.KEY_NAME);
+        String password = SharedPreferenceUtil.getData(LoginActivity.this, SharedPreferenceUtil.KEY_PASSWORD);
+        if (name != null) {
+            etName.setText(name);
+        }
+
+        if (password != null) {
+            etPassword.setText(password);
+        }
+
+    }
 
     private void initEvent() {
 

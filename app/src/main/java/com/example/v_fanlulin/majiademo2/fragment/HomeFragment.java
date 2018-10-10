@@ -175,7 +175,7 @@ public class HomeFragment extends Fragment {
                         for (int i = 0; i < infos.size(); i++) {
                             Info info = infos.get(i);
                             info.setPicture(pics[currentId+1+i]);
-                            HomeFragment.this.infos.add(info);
+                            HomeFragment.this.infos.add(0,info);
                         }
                         myListAdapter.notifyDataSetChanged();
                         MyUtil.toastMessage(getActivity(),"刷新成功！");

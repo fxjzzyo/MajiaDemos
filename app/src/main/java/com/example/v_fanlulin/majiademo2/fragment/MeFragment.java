@@ -139,7 +139,15 @@ public class MeFragment extends Fragment {
         tvUserName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if(Global.user!=null)
+                {
+                    Intent intent4 = new Intent(getActivity(), MyInfoActivity.class);
+                    startActivity(intent4);
+                }else {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+                    getActivity().finish();
+                }
             }
         });
     }
