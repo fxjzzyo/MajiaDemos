@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.example.v_fanlulin.majiademo2.DetailActivity">
+    tools:context="com.example.v_fanlulin.majiademo2.com.majiademo2.DetailActivity">
 
     <ScrollView
         android:layout_width="match_parent"

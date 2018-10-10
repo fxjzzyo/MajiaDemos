@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/bgGainsboro"
     android:orientation="vertical"
-    tools:context="com.example.v_fanlulin.majiademo2.fragment.MeFragment">
+    tools:context="com.example.v_fanlulin.majiademo2.com.majiademo2.fragment.MeFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
